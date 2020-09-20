@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Pokecard extends React.Component{
+    
     render(){
         function addZero(num){
             if(num<10){
@@ -12,23 +13,40 @@ class Pokecard extends React.Component{
                 return ''
             }
         }
+
+        let random = Math.floor(Math.random()*9)
+        let pokemon = this.props.data[random]
+
+        let sendXp = () =>{
+            let experience = pokemon.xp
+            this.props.callback(experience);
+            // console.log(experience);
+        }
+        sendXp();
+
         return(
-            <div className="row row-cols-1 row-cols-md-3 ">
-                {this.props.data.map((pokemon) =>
-                    <div className="col-lg-4 mb-4">
-                        <div className="card">
-                            <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/` + addZero(pokemon.id) + pokemon.id + ".png"} className="card-img-top w-50 m-auto" alt={pokemon.name}></img>
-                            <div className="card-body text-center p-0">
-                                <h5 className="card-title">{pokemon.name}</h5>
-                                <p className="card-text">Type: {pokemon.type}</p>
-                                <p className="card-text">XP: {pokemon.xp}</p>
-                            </div>
-                        </div>
+            <div className="text-center">
+                <div className="card m-2">
+                    <img className="card-img-top jumbotron m-0" 
+                        src={"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + addZero(pokemon.id) + pokemon.id + ".png"} alt="Card cap"
+                    ></img>
+                    <div className="card-body">
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item"><strong>{pokemon.name}</strong></li>
+                        <li className="list-group-item"><strong>type: </strong>{pokemon.type}</li>
+                        <li className="list-group-item xp"><strong>xp: </strong>{pokemon.xp}</li>
+                    </ul>
                     </div>
-                )}
+                </div>
             </div>
         )
     }
 }
 
 export default Pokecard;
+
+
+// sendXp = () =>{
+          
+//     this.props.callback(this.props.data[random].xp)
+// }

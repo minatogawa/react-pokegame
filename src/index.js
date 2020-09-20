@@ -7,7 +7,7 @@ class Hello extends React.Component{
     render(){
         return(
             <div className="container">
-                <h1>Pokegame</h1>
+                <h1 className="text-center">Pokegame</h1>
                 <Pokegame />
             </div>
         )
