@@ -14,7 +14,7 @@ class Pokecard extends React.Component{
             }
         }
 
-        let random = Math.floor(Math.random()*9)
+        let random = Math.floor(Math.random()*18)
         let pokemon = this.props.data[random]
         
         let sendXp = () =>{
