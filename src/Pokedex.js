@@ -1,15 +1,11 @@
 import React from 'react';
 import Pokecard from './Pokecard'
 
-let xpPoints = 0
-
 class Pokedex extends React.Component{
 
     callXp = (xpFromPokecard) =>{
-        xpPoints += xpFromPokecard
+        return xpFromPokecard
     }
-    
-    
 
     render(){
         
@@ -25,7 +21,7 @@ class Pokedex extends React.Component{
             {id: 9, name: "Blastoise", type: "water", xp:50},
         ]
         return(
-            <div className="d-flex">
+            <div className="d-flex mb-5 justify-content-center">
                 <Pokecard 
                     data = {pokeData}
                     callback = {this.callXp}
@@ -42,7 +38,7 @@ class Pokedex extends React.Component{
                     data = {pokeData}
                     callback = {this.callXp}
                 />
-            <h3>Total XP: {xpPoints}</h3>
+            {/* <h3>Total XP: {xpFromPokecard}</h3> */}
             </div>
             
         )
