@@ -2,13 +2,7 @@ import React from 'react';
 import Pokecard from './Pokecard'
 
 class Pokedex extends React.Component{
-
-    callXp = (xpFromPokecard) =>{
-        return xpFromPokecard
-    }
-
     render(){
-        
         const pokeData = [
             {id: 4, name: "Charmander", type: "fire", xp:15},
             {id: 5, name: "Charmeleon", type: "fire", xp:35},
@@ -33,19 +27,15 @@ class Pokedex extends React.Component{
             <div className="d-flex mb-5 justify-content-center">
                 <Pokecard 
                     data = {pokeData}
-                    callback = {this.callXp}
                 />
                 <Pokecard 
                     data = {pokeData}
-                    callback = {this.callXp}
                 />
                 <Pokecard 
                     data = {pokeData}
-                    callback = {this.callXp}
                 />
                 <Pokecard 
                     data = {pokeData}
-                    callback = {this.callXp}
                 />
             {/* <h3>Total XP: {xpFromPokecard}</h3> */}
             </div>

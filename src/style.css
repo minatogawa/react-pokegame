@@ -5,7 +5,8 @@ body{
 }
 
 figure{
-    box-shadow: 5px 5px 5px 5px #401d0d
+    box-shadow: 5px 5px 5px 5px #401d0d;
+    font-size: x-large
 }
   
 .zoom:hover {

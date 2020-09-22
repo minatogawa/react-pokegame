@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class Pokecard extends React.Component{
-    
+class Pokecard extends Component{
     render(){
+        const  url = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"
         function addZero(num){
             if(num<10){
                 return '00'
@@ -13,22 +13,14 @@ class Pokecard extends React.Component{
                 return ''
             }
         }
-
-        let random = Math.floor(Math.random()*18)
-        let pokemon = this.props.data[random]
-        
-        let sendXp = () =>{
-            this.props.callback(pokemon.xp);
-        }
-        sendXp();
-
+        const pokemon = this.props.data[Math.floor(Math.random()*18)]
+        const imgSrc = `${url}${addZero(pokemon.id)}${pokemon.id}.png`
         return(
             <div className="text-center ">
                 <figure className="card m-2">
                     <img className="card-img-top m-0 zoom" 
-                        src={"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + addZero(pokemon.id) + pokemon.id + ".png"} alt="Card cap"
-                    ></img>
-                    <figcaption className="card-body p-0">
+                        src={imgSrc} alt={pokemon.name}
+                    />                   <figcaption className="card-body p-0">
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item"><strong>{pokemon.name}</strong></li>
                             <li className="list-group-item"><strong>Type: </strong>{pokemon.type}</li>
